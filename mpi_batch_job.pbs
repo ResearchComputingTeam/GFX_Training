@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -N dl_mpi_training
+#PBS -l select=1:ncpus=36:ngpus=2
+#PBS -l walltime=02:00:00
+#PBS -j oe
+#PBS -o dl_mpi_training.log
+#PBS -q workq
+
+# ── Environment setup ─────────────────────────────
+module purge
+module load openmpi/gcc/64/4.1.5
+
+source /cm/shared/apps/anaconda/2024.10/etc/profile.d/conda.sh
+conda activate two_sdl
+
+# ── Move to submission directory ─────────────────────
+cd $PBS_O_WORKDIR
+
+# ── Run ───────────────────────────────────────
+#mpirun -np 4 python3 dl_mpi4py.py
+# 2 ranks, 1 per socket, pinned to local GPU : topology-aware placement
+mpirun -np 2 --map-by socket --bind-to socket python3 dl_mpi4py.py
