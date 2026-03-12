@@ -11,7 +11,7 @@ module purge
 module load openmpi/gcc/64/4.1.5
 
 source /cm/shared/apps/anaconda/2024.10/etc/profile.d/conda.sh
-conda activate two_sdl
+conda activate /ddn/sw/cm/shared/apps/conda/envs/pytorch_demo
 
 # ── Move to submission directory ─────────────────────
 cd $PBS_O_WORKDIR
