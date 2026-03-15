@@ -7,6 +7,7 @@ Quick reference of commands used during the **raad2-gfx GPU training**.
 ## Table of Contents
 
 **Part 1: Essential Commands**
+
 1. [Connect to the Cluster](#1-connect-to-the-cluster)
 2. [Request GPU Session](#2-request-gpu-session)
 3. [Check GPU Availability](#3-check-gpu-availability)
@@ -16,6 +17,7 @@ Quick reference of commands used during the **raad2-gfx GPU training**.
 7. [Monitor Jobs](#7-monitor-jobs)
 
 **Part 2: Advanced Commands**
+
 8. [PBS Advanced Examples](#8-pbs-advanced-examples)
 9. [GPU Monitoring & Debugging](#9-gpu-monitoring--debugging)
 10. [File Transfer](#10-file-transfer)
