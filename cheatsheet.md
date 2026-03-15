@@ -10,7 +10,7 @@ Quick reference of commands used during the **raad2-gfx GPU training**.
 1. [Connect to the Cluster](#1-connect-to-the-cluster)
 2. [Request GPU Session](#2-request-gpu-session)
 3. [Check GPU Availability](#3-check-gpu-availability)
-4. [Conda Environments](#4-conda-environments)
+4. [Software Environment](#4-software-environment)
 5. [Running Python Scripts](#5-running-python-scripts)
 6. [PBS Job Management](#6-pbs-job-management)
 7. [Monitor Jobs](#7-monitor-jobs)
@@ -73,8 +73,17 @@ watch -n 1 nvidia-smi
 ```
 
 ---
+## 4. Software Environment
+### 4.1 Environment Modules
+```bash
+module avail       # List available modules
+module list        # List loaded modules
+module load name   # Load module
+module unload name # Unload module
+module purge       # Unload all modules
+```
 
-## 4. Conda Environments
+### 4.2 Conda Environments
 
 **Load conda:**
 ```bash
@@ -126,7 +135,7 @@ python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 **Create job script:**
 ```bash
-nano train_gpu.pbs
+vi train_gpu.pbs
 ```
 
 **Basic PBS script template:**
@@ -564,15 +573,6 @@ du -sh *           # Size of directories
 free -h            # Memory usage
 ```
 
-### Environment Modules
-```bash
-module avail       # List available modules
-module list        # List loaded modules
-module load name   # Load module
-module unload name # Unload module
-module purge       # Unload all modules
-```
-
 ### Process Management
 ```bash
 ps aux             # List all processes
@@ -596,14 +596,14 @@ killall python     # Kill all Python processes
 
 ### Best Practices & Tips
 
-- ⚠️ **Never run training on login nodes** - Always use `sinteractive` or submit jobs
-- 💾 **Save checkpoints regularly** - Don't lose hours of training
-- 📊 **Monitor resources** - Check GPU utilization to ensure efficient usage
-- 🔒 **Don't share credentials** - Keep passwords and API keys private
-- 📝 **Log your experiments** - Keep track of hyperparameters and results
-- 🧹 **Clean up old files** - Remove unused environments and datasets
-- 🎯 **Test interactively first** - Debug on `sinteractive` before batch jobs
-- ⏱️ **Request appropriate walltime** - Don't request more than needed
+- **Never run training on login nodes** - Always use `sinteractive` or submit jobs
+- **Save checkpoints regularly** - Don't lose hours of training
+- **Monitor resources** - Check GPU utilization to ensure efficient usage
+- **Don't share credentials** - Keep passwords and API keys private
+- **Log your experiments** - Keep track of hyperparameters and results
+- **Clean up old files** - Remove unused environments and datasets
+- **Test interactively first** - Debug on `sinteractive` before batch jobs
+- **Request appropriate walltime** - Don't request more than needed
 
 ### RCCG Support
 
